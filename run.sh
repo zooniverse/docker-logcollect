@@ -6,4 +6,4 @@ then
     exit 1
 fi
 
-tail -qF $LOGFILES  | gelfcat $*
+tail -qF $LOGFILES  | gelfcat "$@"
