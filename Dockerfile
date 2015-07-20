@@ -5,10 +5,7 @@ RUN apt-get update && apt-get install -y golang git
 ENV GOPATH /usr/local
 
 RUN go get github.com/zooniverse/gelfcat
-RUN cd /usr/local/src/github.com/zooniverse/gelfcat && git checkout nginx-parse
-
-RUN go get github.com/zooniverse/gonx
-RUN cd /usr/local/src/github.com/zooniverse/gonx && git checkout entry-json
+RUN cd /usr/local/src/github.com/zooniverse/gelfcat && git checkout format-json
 
 RUN go install github.com/zooniverse/gelfcat
 
