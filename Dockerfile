@@ -1,8 +1,6 @@
-FROM ubuntu:14.04
+FROM golang:1-alpine
 
-RUN apt-get update && apt-get install -y golang git
-
-ENV GOPATH /usr/local
+RUN apk add --no-cache git
 
 RUN go get github.com/zooniverse/gelfcat
 RUN go install github.com/zooniverse/gelfcat
