@@ -5,7 +5,10 @@ RUN apk add --no-cache git
 RUN go get github.com/zooniverse/gelfcat
 RUN go install github.com/zooniverse/gelfcat
 
-ADD run.sh /
-RUN chmod +x /run.sh
+FROM alpine
+
+COPY --from=0 /go/bin/gelfcat /usr/local/bin/gelfcat
+
+COPY run.sh /
 
 ENTRYPOINT [ "/run.sh" ]
